@@ -1,0 +1,3514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Everest Studios — Premium audio and film post-production studio in Hyderabad." />
+  <title>Everest Studios — Crafting Sound. Elevating Cinema.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Bebas+Neue&family=Jost:wght@200;300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ════════════════════════════════════════════════
+   EVEREST STUDIOS — Premium Cinematic CSS
+   Palette: Deep Crimson · Platinum · Obsidian
+   ════════════════════════════════════════════════ */
+
+    :root {
+      --obsidian: #080810;
+      --deep: #0c0c18;
+      --panel: #12121e;
+      --surface: #1a1a2e;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.07);
+      --crimson: #c1121f;
+      --crimson-light: #e63946;
+      --crimson-glow: rgba(193, 18, 31, 0.25);
+      --crimson-dim: #5c0a0f;
+      --platinum: #d4d4d4;
+      --platinum-light: #f0f0f0;
+      --platinum-dim: #888899;
+      --teal: #00b4d8;
+      --white: #f0eff5;
+      --muted: #55556a;
+      --muted-light: #88889a;
+      --font-display: 'Playfair Display', serif;
+      --font-hero: 'Bebas Neue', cursive;
+      --font-ui: 'Jost', sans-serif;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ease-cinema: cubic-bezier(0.77, 0, 0.18, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden
+    }
+
+    body {
+      background: var(--obsidian);
+      color: var(--white);
+      font-family: var(--font-ui);
+      font-size: 17px;
+      line-height: 1.75;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    img {
+      display: block;
+      max-width: 100%
+    }
+
+    button {
+      cursor: none;
+      font-family: var(--font-ui);
+      border: none;
+      background: none
+    }
+
+    ::selection {
+      background: var(--crimson);
+      color: #fff
+    }
+
+    /* ── CURSOR ───────────────────────────────────── */
+    #cursor {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: var(--crimson-light);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform .12s, background .2s;
+    }
+
+    #cursor-ring {
+      position: fixed;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(193, 18, 31, .5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: all .28s var(--ease-out);
+    }
+
+    #cursor.hover {
+      transform: translate(-50%, -50%) scale(2.5);
+      background: var(--crimson)
+    }
+
+    #cursor-ring.hover {
+      transform: translate(-50%, -50%) scale(1.5);
+      border-color: var(--crimson-light)
+    }
+
+    /* ── GRAIN ────────────────────────────────────── */
+    .grain {
+      position: fixed;
+      top: -10%;
+      left: -10%;
+      width: 120%;
+      height: 120%;
+      z-index: 9990;
+      pointer-events: none;
+      opacity: .028;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      will-change: transform;
+      animation: grain .4s steps(1) infinite;
+    }
+
+    @keyframes grain {
+
+      0%,
+      100% {
+        transform: translate(0, 0)
+      }
+
+      10% {
+        transform: translate(-2%, -3%)
+      }
+
+      20% {
+        transform: translate(3%, 2%)
+      }
+
+      30% {
+        transform: translate(-1%, 4%)
+      }
+
+      40% {
+        transform: translate(2%, -1%)
+      }
+
+      50% {
+        transform: translate(-3%, 3%)
+      }
+
+      60% {
+        transform: translate(4%, -2%)
+      }
+
+      70% {
+        transform: translate(-2%, 1%)
+      }
+
+      80% {
+        transform: translate(1%, -4%)
+      }
+
+      90% {
+        transform: translate(-3%, 2%)
+      }
+    }
+
+    /* ── LOADER ───────────────────────────────────── */
+    #loader {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: var(--obsidian);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      transition: opacity .9s var(--ease-cinema), visibility .9s;
+    }
+
+    #loader.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none
+    }
+
+    .loader-logo {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: .3em;
+      color: var(--platinum-light);
+      opacity: 0;
+      animation: fadeUp .8s .3s var(--ease-out) forwards;
+    }
+
+    .loader-logo em {
+      font-style: normal;
+      color: var(--crimson-light)
+    }
+
+    .loader-sub {
+      font-family: var(--font-ui);
+      font-size: .68rem;
+      letter-spacing: .4em;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: 0;
+      animation: fadeUp .8s .5s var(--ease-out) forwards;
+    }
+
+    .eq-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 44px;
+      opacity: 0;
+      animation: fadeUp .8s .4s var(--ease-out) forwards;
+    }
+
+    .eq-bar {
+      width: 4px;
+      background: linear-gradient(to top, var(--crimson), var(--crimson-light));
+      border-radius: 2px;
+      animation: eq var(--d, .8s) ease-in-out infinite alternate;
+    }
+
+    .eq-bar:nth-child(1) {
+      --d: .55s;
+      height: 55%
+    }
+
+    .eq-bar:nth-child(2) {
+      --d: .85s;
+      height: 100%
+    }
+
+    .eq-bar:nth-child(3) {
+      --d: .5s;
+      height: 38%
+    }
+
+    .eq-bar:nth-child(4) {
+      --d: .78s;
+      height: 80%
+    }
+
+    .eq-bar:nth-child(5) {
+      --d: .65s;
+      height: 50%
+    }
+
+    .eq-bar:nth-child(6) {
+      --d: .95s;
+      height: 90%
+    }
+
+    .eq-bar:nth-child(7) {
+      --d: .6s;
+      height: 30%
+    }
+
+    .eq-bar:nth-child(8) {
+      --d: .72s;
+      height: 65%
+    }
+
+    @keyframes eq {
+      to {
+        height: 12%
+      }
+    }
+
+    /* ── NAV ──────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 22px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all .5s var(--ease-out);
+    }
+
+    nav.scrolled {
+      background: rgba(8, 8, 16, .88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 14px 5%;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      color: var(--platinum-light);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--crimson-light);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 var(--crimson-glow)
+      }
+
+      50% {
+        box-shadow: 0 0 0 6px transparent
+      }
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none
+    }
+
+    .nav-links a {
+      font-family: var(--font-ui);
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--muted-light);
+      transition: color .3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--crimson-light);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .35s var(--ease-out);
+    }
+
+    .nav-links a:hover {
+      color: var(--white)
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1)
+    }
+
+    .nav-cta {
+      padding: 9px 22px;
+      border: 1px solid var(--crimson-dim);
+      color: var(--crimson-light);
+      font-family: var(--font-ui);
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    .nav-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--crimson);
+      transform: translateY(100%);
+      transition: transform .3s var(--ease-cinema);
+    }
+
+    .nav-cta span {
+      position: relative;
+      z-index: 1
+    }
+
+    .nav-cta:hover {
+      color: var(--white);
+      border-color: var(--crimson)
+    }
+
+    .nav-cta:hover::before {
+      transform: translateY(0)
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: none
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 1px;
+      background: var(--white);
+      transition: .3s
+    }
+
+    #mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 990;
+      background: rgba(8, 8, 16, .97);
+      backdrop-filter: blur(30px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+    }
+
+    #mobile-nav a {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: .1em;
+      transition: color .3s;
+    }
+
+    #mobile-nav a:hover {
+      color: var(--crimson-light)
+    }
+
+    .mobile-close {
+      position: absolute;
+      top: 28px;
+      right: 5%;
+      font-size: 1.5rem;
+      color: var(--muted);
+      cursor: none;
+      transition: color .3s;
+    }
+
+    .mobile-close:hover {
+      color: var(--crimson-light)
+    }
+
+    /* ── HERO ─────────────────────────────────────── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-cinematic-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, #08080f 0%, #14080c 40%, #080814 80%, #050508 100%);
+      overflow: hidden;
+    }
+
+    .hero-cinematic-bg::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: 50%;
+      width: 900px;
+      height: 900px;
+      transform: translateX(-50%);
+      background: radial-gradient(ellipse, rgba(193, 18, 31, .08) 0%, transparent 65%);
+    }
+
+    .hero-cinematic-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(8, 8, 16, .2) 0%, rgba(8, 8, 16, .5) 60%, rgba(8, 8, 16, 1) 100%);
+    }
+
+    .light-ray {
+      position: absolute;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(193, 18, 31, .12), transparent);
+      top: -10%;
+      height: 120%;
+      animation: rayMove 10s ease-in-out infinite alternate;
+    }
+
+    .light-ray:nth-child(1) {
+      left: 18%;
+      animation-delay: 0s;
+      opacity: .7
+    }
+
+    .light-ray:nth-child(2) {
+      left: 35%;
+      animation-delay: -3s;
+      width: 2px;
+      opacity: .4
+    }
+
+    .light-ray:nth-child(3) {
+      left: 62%;
+      animation-delay: -6s;
+      opacity: .6
+    }
+
+    .light-ray:nth-child(4) {
+      left: 78%;
+      animation-delay: -9s;
+      width: 2px;
+      opacity: .3
+    }
+
+    @keyframes rayMove {
+      0% {
+        transform: skewX(-10deg) translateX(0)
+      }
+
+      100% {
+        transform: skewX(10deg) translateX(30px)
+      }
+    }
+
+    .film-perfs {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 20px 0;
+      opacity: .06;
+      z-index: 5;
+    }
+
+    .film-perfs.left {
+      left: 0
+    }
+
+    .film-perfs.right {
+      right: 0
+    }
+
+    .film-perf {
+      width: 20px;
+      height: 14px;
+      border: 1px solid var(--platinum);
+      border-radius: 2px;
+      margin: 0 auto
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 900px;
+      padding: 0 24px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-ui);
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .5em;
+      text-transform: uppercase;
+      color: var(--crimson-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp .8s .8s var(--ease-out) forwards;
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--crimson-dim);
+    }
+
+    .hero-title {
+      font-family: var(--font-hero);
+      font-size: clamp(4rem, 10vw, 10rem);
+      line-height: .9;
+      letter-spacing: .04em;
+      color: var(--platinum-light);
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeUp .9s .9s var(--ease-out) forwards;
+    }
+
+    .hero-title .line2 {
+      display: block;
+      background: linear-gradient(135deg, var(--crimson-light), #ff6b6b, var(--platinum-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: var(--platinum-dim);
+      margin: 24px 0 40px;
+      opacity: 0;
+      animation: fadeUp .8s 1.1s var(--ease-out) forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp .8s 1.3s var(--ease-out) forwards;
+    }
+
+    .btn-primary {
+      padding: 14px 36px;
+      background: var(--crimson);
+      color: var(--white);
+      font-family: var(--font-ui);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all .35s var(--ease-out);
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--crimson-light), #c1121f);
+      transform: translateX(-100%);
+      transition: transform .4s var(--ease-cinema);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 30px var(--crimson-glow)
+    }
+
+    .btn-primary:hover::before {
+      transform: translateX(0)
+    }
+
+    .btn-primary span {
+      position: relative;
+      z-index: 1
+    }
+
+    .btn-ghost {
+      padding: 14px 36px;
+      border: 1px solid rgba(212, 212, 212, .3);
+      color: var(--platinum);
+      font-family: var(--font-ui);
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all .3s;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--platinum);
+      color: var(--white);
+      background: rgba(212, 212, 212, .05)
+    }
+
+    .hero-wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 160px;
+      z-index: 6
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeUp .8s 1.8s var(--ease-out) forwards;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--crimson-light), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+
+      0%,
+      100% {
+        transform: scaleY(1);
+        opacity: 1
+      }
+
+      50% {
+        transform: scaleY(.5);
+        opacity: .3
+      }
+    }
+
+    .scroll-text {
+      font-family: var(--font-ui);
+      font-size: .55rem;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      color: var(--muted)
+    }
+
+    /* ── SECTION COMMONS ──────────────────────────── */
+    section {
+      padding: 120px 5%
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-ui);
+      font-size: .62rem;
+      font-weight: 500;
+      letter-spacing: .5em;
+      text-transform: uppercase;
+      color: var(--crimson-light);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--crimson-dim)
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--platinum-light);
+      margin-bottom: 16px;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--crimson-light)
+    }
+
+    .section-sub {
+      font-family: var(--font-ui);
+      font-size: 1rem;
+      color: var(--muted-light);
+      max-width: 560px;
+      line-height: 1.8;
+    }
+
+    .section-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--crimson), transparent);
+      margin: 24px 0
+    }
+
+    /* Reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .8s var(--ease-out), transform .8s var(--ease-out)
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity .8s var(--ease-out), transform .8s var(--ease-out)
+    }
+
+    .reveal-left.visible {
+      opacity: 1;
+      transform: none
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity .8s var(--ease-out), transform .8s var(--ease-out)
+    }
+
+    .reveal-right.visible {
+      opacity: 1;
+      transform: none
+    }
+
+    .delay-1 {
+      transition-delay: .15s
+    }
+
+    .delay-2 {
+      transition-delay: .3s
+    }
+
+    .delay-3 {
+      transition-delay: .45s
+    }
+
+    /* ── SERVICES ─────────────────────────────────── */
+    #services {
+      background: var(--deep)
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 70px
+    }
+
+    .services-header .section-eyebrow {
+      justify-content: center
+    }
+
+    .services-header .section-eyebrow::before {
+      display: none
+    }
+
+    .services-header .section-divider {
+      margin: 24px auto
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      position: relative;
+      background: var(--panel);
+      padding: 48px 36px;
+      overflow: hidden;
+      transition: all .4s var(--ease-out);
+      cursor: none;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--crimson), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .5s var(--ease-out);
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(193, 18, 31, .06) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity .4s;
+    }
+
+    .service-card:hover {
+      background: var(--surface);
+      transform: translateY(-4px)
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1)
+    }
+
+    .service-card:hover::after {
+      opacity: 1
+    }
+
+    .service-card:hover .service-wave {
+      opacity: 1
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 24px;
+      display: block;
+      transition: filter .3s
+    }
+
+    .service-num {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      font-family: var(--font-hero);
+      font-size: 4rem;
+      color: rgba(255, 255, 255, .03);
+      line-height: 1;
+      transition: color .4s;
+    }
+
+    .service-card:hover .service-num {
+      color: rgba(193, 18, 31, .06)
+    }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--platinum-light);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .service-desc {
+      font-family: var(--font-ui);
+      font-size: .88rem;
+      color: var(--muted-light);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .service-wave {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 28px;
+      opacity: 0;
+      transition: opacity .4s;
+    }
+
+    .s-bar {
+      width: 3px;
+      background: var(--crimson);
+      border-radius: 2px;
+      animation: eq var(--d, .7s) ease-in-out infinite alternate
+    }
+
+    /* ── OWNER ────────────────────────────────────── */
+    #owner {
+      background: var(--obsidian);
+      overflow: hidden
+    }
+
+    .owner-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .owner-img-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--panel);
+      overflow: hidden;
+    }
+
+    .owner-img-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, #1a0a0d, #0c0c1e, #0d1a1a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8rem;
+    }
+
+    .owner-img-frame {
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--glass-border)
+    }
+
+    .owner-img-accent {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 120px;
+      height: 120px;
+      border: 2px solid var(--crimson-dim);
+    }
+
+    .owner-img-accent2 {
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      width: 80px;
+      height: 80px;
+      border: 1px solid rgba(212, 212, 212, .15);
+    }
+
+    .owner-badge {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      background: var(--panel);
+      border: 1px solid var(--glass-border);
+      padding: 16px 24px;
+      backdrop-filter: blur(10px);
+    }
+
+    .owner-badge-label {
+      font-family: var(--font-ui);
+      font-size: .6rem;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .owner-badge-value {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--crimson-light)
+    }
+
+    .owner-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      color: var(--platinum-light);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .owner-tag {
+      font-family: var(--font-ui);
+      font-size: .7rem;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      color: var(--crimson-light);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .owner-tag::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--crimson-dim)
+    }
+
+    .owner-bio {
+      font-family: var(--font-ui);
+      font-size: 1rem;
+      color: var(--muted-light);
+      line-height: 1.85;
+      margin-bottom: 28px;
+    }
+
+    .owner-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 40px
+    }
+
+    .stat-box {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: var(--font-hero);
+      font-size: 2.5rem;
+      color: var(--crimson-light);
+      line-height: 1
+    }
+
+    .stat-label {
+      font-family: var(--font-ui);
+      font-size: .65rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .owner-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap
+    }
+
+    .owner-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 22px;
+      border: 1px solid var(--glass-border);
+      font-family: var(--font-ui);
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted-light);
+      border-radius: 2px;
+      transition: all .3s;
+    }
+
+    .owner-link:hover {
+      border-color: var(--crimson-dim);
+      color: var(--crimson-light)
+    }
+
+    .owner-link svg {
+      width: 16px;
+      height: 16px
+    }
+
+    /* Timeline */
+    .career-timeline {
+      margin-top: 80px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .timeline-title {
+      font-family: var(--font-ui);
+      font-size: .65rem;
+      letter-spacing: .4em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .timeline-track {
+      position: relative;
+      display: flex;
+      gap: 0
+    }
+
+    .timeline-track::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--crimson-dim), var(--crimson-dim), transparent);
+    }
+
+    .timeline-item {
+      flex: 1;
+      padding: 0 16px;
+      text-align: center;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s var(--ease-out), transform .6s var(--ease-out);
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: none
+    }
+
+    .timeline-item:nth-child(1) {
+      transition-delay: .1s
+    }
+
+    .timeline-item:nth-child(2) {
+      transition-delay: .2s
+    }
+
+    .timeline-item:nth-child(3) {
+      transition-delay: .3s
+    }
+
+    .timeline-item:nth-child(4) {
+      transition-delay: .4s
+    }
+
+    .timeline-item:nth-child(5) {
+      transition-delay: .5s
+    }
+
+    .timeline-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--crimson);
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 14px var(--crimson-glow);
+    }
+
+    .timeline-year {
+      font-family: var(--font-hero);
+      font-size: 1.3rem;
+      color: var(--crimson-light);
+      margin-bottom: 6px
+    }
+
+    .timeline-event {
+      font-family: var(--font-ui);
+      font-size: .75rem;
+      color: var(--muted-light);
+      line-height: 1.6
+    }
+
+    /* ── STUDIO ───────────────────────────────────── */
+    #studio {
+      background: var(--deep)
+    }
+
+    .studio-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto 70px;
+    }
+
+    .studio-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 3px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .studio-img {
+      position: relative;
+      overflow: hidden;
+      cursor: none;
+      background: var(--panel)
+    }
+
+    .studio-img:first-child {
+      grid-column: span 2;
+      aspect-ratio: 16/7
+    }
+
+    .studio-img:not(:first-child) {
+      aspect-ratio: 4/3
+    }
+
+    .studio-img-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      background: linear-gradient(135deg, #0f0f1e, #1a0a10, #0f1a1a);
+      transition: transform .7s var(--ease-cinema);
+    }
+
+    .studio-img:hover .studio-img-inner {
+      transform: scale(1.04)
+    }
+
+    .studio-img-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background: linear-gradient(to top, rgba(8, 8, 16, .9), transparent);
+      font-family: var(--font-ui);
+      font-size: .65rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--muted-light);
+      transform: translateY(100%);
+      transition: transform .4s var(--ease-out);
+    }
+
+    .studio-img:hover .studio-img-label {
+      transform: none
+    }
+
+    /* ── PORTFOLIO ────────────────────────────────── */
+    #portfolio {
+      background: var(--obsidian)
+    }
+
+    .portfolio-header {
+      max-width: 1200px;
+      margin: 0 auto 50px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .portfolio-tabs {
+      display: flex;
+      gap: 4px
+    }
+
+    .tab-btn {
+      padding: 9px 22px;
+      font-family: var(--font-ui);
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid transparent;
+      border-radius: 2px;
+      transition: all .3s;
+      cursor: none;
+    }
+
+    .tab-btn:hover,
+    .tab-btn.active {
+      color: var(--white);
+      border-color: var(--crimson-dim);
+      background: rgba(193, 18, 31, .08)
+    }
+
+    .tab-btn.active {
+      color: var(--crimson-light)
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 3px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      cursor: none;
+      aspect-ratio: 4/3;
+      background: var(--panel)
+    }
+
+    .portfolio-thumb {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      background: linear-gradient(135deg, #12121e, #1a0a10, #0f1a14);
+      transition: transform .6s var(--ease-cinema);
+    }
+
+    .portfolio-item:hover .portfolio-thumb {
+      transform: scale(1.05)
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8, 8, 16, .95) 0%, rgba(8, 8, 16, .3) 60%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      transform: translateY(20px);
+      transition: transform .4s var(--ease-out);
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      transform: none
+    }
+
+    .portfolio-tag {
+      font-family: var(--font-ui);
+      font-size: .58rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--crimson-light);
+      margin-bottom: 6px;
+    }
+
+    .portfolio-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 12px
+    }
+
+    .portfolio-play {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-ui);
+      font-size: .65rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted-light);
+      transition: color .3s;
+    }
+
+    .portfolio-play:hover {
+      color: var(--crimson-light)
+    }
+
+    .play-circle {
+      width: 28px;
+      height: 28px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .7rem;
+      transition: border-color .3s, background .3s;
+    }
+
+    .portfolio-play:hover .play-circle {
+      border-color: var(--crimson-light);
+      background: var(--crimson)
+    }
+
+    /* ── TESTIMONIALS ─────────────────────────────── */
+    #testimonials {
+      background: var(--deep);
+      overflow: hidden
+    }
+
+    .testimonials-inner {
+      max-width: 1200px;
+      margin: 0 auto
+    }
+
+    .testimonials-track {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 60px
+    }
+
+    .testimonial-card {
+      background: var(--panel);
+      border: 1px solid var(--glass-border);
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .4s var(--ease-out), border-color .4s;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--crimson-dim)
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 24px;
+      font-family: var(--font-display);
+      font-size: 8rem;
+      color: rgba(193, 18, 31, .06);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .testimonial-text {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--platinum);
+      line-height: 1.85;
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px
+    }
+
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--crimson-dim), var(--surface));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      border: 1px solid var(--glass-border);
+    }
+
+    .author-name {
+      font-family: var(--font-display);
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--platinum-light)
+    }
+
+    .author-role {
+      font-family: var(--font-ui);
+      font-size: .65rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 2px
+    }
+
+    .testimonial-video-wrap {
+      margin-top: 60px;
+      position: relative;
+      max-width: 800px;
+      margin: 60px auto 0;
+      background: var(--panel);
+      border: 1px solid var(--glass-border);
+      overflow: hidden;
+    }
+
+    .testimonial-video-label {
+      padding: 20px 28px;
+      font-family: var(--font-ui);
+      font-size: .65rem;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .testimonial-video-placeholder {
+      padding: 60px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .testimonial-video-icon {
+      font-size: 3rem
+    }
+
+    .testimonial-video-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--platinum)
+    }
+
+    .testimonial-video-note {
+      font-family: var(--font-ui);
+      font-size: .78rem;
+      color: var(--muted);
+      max-width: 400px
+    }
+
+    .testimonial-video-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border: 1px solid var(--crimson-dim);
+      color: var(--crimson-light);
+      font-family: var(--font-ui);
+      font-size: .68rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all .3s;
+    }
+
+    .testimonial-video-link:hover {
+      background: var(--crimson);
+      color: #fff;
+      border-color: var(--crimson)
+    }
+
+    /* ── INSTAGRAM ────────────────────────────────── */
+    #instagram {
+      background: var(--obsidian)
+    }
+
+    .insta-sections {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      max-width: 1200px;
+      margin: 0 auto
+    }
+
+    .insta-section-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--platinum-light);
+      margin-bottom: 6px
+    }
+
+    .insta-handle {
+      font-family: var(--font-ui);
+      font-size: .7rem;
+      letter-spacing: .18em;
+      color: var(--crimson-light);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .insta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px
+    }
+
+    .insta-post {
+      aspect-ratio: 1;
+      background: var(--panel);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      overflow: hidden;
+      position: relative;
+      cursor: none;
+      transition: transform .3s;
+    }
+
+    .insta-post:hover {
+      transform: scale(.96)
+    }
+
+    .insta-post-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(193, 18, 31, .7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .insta-post:hover .insta-post-overlay {
+      opacity: 1
+    }
+
+    .insta-cta {
+      margin-top: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-ui);
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted-light);
+      transition: color .3s;
+    }
+
+    .insta-cta:hover {
+      color: var(--crimson-light)
+    }
+
+    /* ── PIANO ────────────────────────────────────── */
+    #piano {
+      background: var(--deep)
+    }
+
+    .piano-container {
+      max-width: 1100px;
+      margin: 0 auto
+    }
+
+    .piano-body {
+      background: linear-gradient(160deg, #1c0a02 0%, #0d0500 50%, #1c0a02 100%);
+      border: 2px solid #3a1a05;
+      border-radius: 14px 14px 20px 20px;
+      padding: 36px 40px 48px;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, .03), 0 30px 80px rgba(0, 0, 0, .85), inset 0 1px 0 rgba(255, 210, 120, .06);
+      position: relative;
+    }
+
+    .piano-brand {
+      text-align: center;
+      margin-bottom: 28px;
+      font-family: var(--font-display);
+      font-size: .72rem;
+      letter-spacing: .6em;
+      color: rgba(255, 190, 80, .25);
+      text-transform: uppercase;
+    }
+
+    .piano-display {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(135deg, #060e06, #0a140a);
+      border: 1px solid rgba(0, 255, 80, .12);
+      border-radius: 8px;
+      padding: 14px 24px;
+      margin-bottom: 28px;
+      box-shadow: inset 0 2px 12px rgba(0, 0, 0, .6), 0 0 24px rgba(0, 200, 60, .03);
+    }
+
+    .piano-display-note {
+      font-family: var(--font-hero);
+      font-size: 2.2rem;
+      color: #00e864;
+      text-shadow: 0 0 20px rgba(0, 232, 100, .6);
+      letter-spacing: .12em;
+      min-width: 90px;
+    }
+
+    .piano-display-label {
+      font-family: var(--font-ui);
+      font-size: .58rem;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      color: rgba(0, 232, 100, .35);
+      margin-bottom: 4px;
+    }
+
+    .piano-display-hint {
+      font-family: var(--font-ui);
+      font-size: .65rem;
+      color: rgba(0, 232, 100, .45);
+      letter-spacing: .1em;
+    }
+
+    .piano-keys-wrap {
+      position: relative;
+      border-radius: 4px 4px 8px 8px;
+      overflow: hidden;
+      box-shadow: inset 0 -14px 30px rgba(0, 0, 0, .6), 0 0 0 1px rgba(0, 0, 0, .5);
+    }
+
+    .piano-keys {
+      display: flex;
+      position: relative;
+      height: 200px;
+      user-select: none;
+      background: #111;
+    }
+
+    .pk-white {
+      flex: 1;
+      position: relative;
+      background: linear-gradient(180deg, #f6f4ee 0%, #fff 35%, #eae8e0 100%);
+      border-right: 1px solid rgba(0, 0, 0, .18);
+      border-bottom: 4px solid rgba(0, 0, 0, .3);
+      border-radius: 0 0 6px 6px;
+      cursor: none;
+      transition: background .06s, transform .06s;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 10px;
+      box-shadow: inset -1px 0 0 rgba(255, 255, 255, .7), 2px 6px 12px rgba(0, 0, 0, .25);
+    }
+
+    .pk-white:hover {
+      background: linear-gradient(180deg, #ede8d8 0%, #f8f2e0 35%, #e0d8c8 100%)
+    }
+
+    .pk-white.active {
+      background: linear-gradient(180deg, #d4c8b0 0%, #e8d8b0 35%, #ccbc98 100%);
+      transform: translateY(3px);
+      box-shadow: inset -1px 0 0 rgba(255, 255, 255, .5), 1px 2px 6px rgba(0, 0, 0, .3);
+    }
+
+    .pk-white .kl {
+      font-family: var(--font-ui);
+      font-size: .48rem;
+      color: rgba(0, 0, 0, .3);
+      letter-spacing: .04em;
+      pointer-events: none;
+    }
+
+    .pk-black {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      width: 60%;
+      height: 62%;
+      background: linear-gradient(180deg, #222 0%, #333 70%, #1a1a1a 100%);
+      border-radius: 0 0 5px 5px;
+      cursor: none;
+      box-shadow: 2px 5px 10px rgba(0, 0, 0, .9), inset 0 1px 0 rgba(255, 255, 255, .08), inset -1px 0 0 rgba(255, 255, 255, .05);
+      transition: background .06s, transform .06s;
+    }
+
+    .pk-black:hover {
+      background: linear-gradient(180deg, #2a2a2a 0%, #3a3a3a 70%, #222 100%)
+    }
+
+    .pk-black.active {
+      background: linear-gradient(180deg, #111 0%, #1a1a1a 70%, #111 100%);
+      transform: translateY(3px);
+      box-shadow: 1px 2px 5px rgba(0, 0, 0, .95), inset 0 1px 0 rgba(255, 255, 255, .04);
+    }
+
+    .piano-pedals {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .pedal {
+      height: 14px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #8a7540, #5a4c1a);
+      box-shadow: 0 3px 0 rgba(0, 0, 0, .6), inset 0 1px 0 rgba(255, 255, 255, .12);
+    }
+
+    @media(max-width:768px) {
+      .piano-body {
+        padding: 20px 16px 32px
+      }
+
+      .piano-keys {
+        height: 150px
+      }
+    }
+
+    /* ── CONTACT ──────────────────────────────────── */
+    #contact {
+      background: var(--obsidian)
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      max-width: 1200px;
+      margin: 0 auto
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .contact-detail:last-of-type {
+      border-bottom: none
+    }
+
+    .contact-detail-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-detail-label {
+      font-family: var(--font-ui);
+      font-size: .6rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px
+    }
+
+    .contact-detail-value {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--platinum-light)
+    }
+
+    .wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 26px;
+      background: #25d366;
+      color: #fff;
+      font-family: var(--font-ui);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      margin-top: 10px;
+      transition: background .3s;
+    }
+
+    .wa-btn:hover {
+      background: #1db954
+    }
+
+    .form-row {
+      margin-bottom: 16px
+    }
+
+    .form-label {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: .65rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--glass-border);
+      padding: 13px 18px;
+      color: var(--white);
+      font-family: var(--font-ui);
+      font-size: .9rem;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color .3s;
+      -webkit-appearance: none;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--crimson-dim)
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: var(--muted)
+    }
+
+    .form-select {
+      cursor: none
+    }
+
+    .form-select option {
+      background: var(--panel)
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--crimson);
+      color: #fff;
+      font-family: var(--font-ui);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background .3s, box-shadow .3s;
+      cursor: none;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover {
+      background: var(--crimson-light);
+      box-shadow: 0 0 30px var(--crimson-glow)
+    }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer {
+      background: var(--panel);
+      border-top: 1px solid var(--glass-border);
+      padding: 60px 5% 30px
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      color: var(--platinum-light);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-logo em {
+      color: var(--crimson-light);
+      font-style: normal
+    }
+
+    .footer-tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: .95rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.7
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px
+    }
+
+    .social-icon {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .9rem;
+      transition: all .3s;
+      cursor: none;
+    }
+
+    .social-icon:hover {
+      border-color: var(--crimson-dim);
+      background: var(--crimson-glow)
+    }
+
+    .footer-col-title {
+      font-family: var(--font-ui);
+      font-size: .62rem;
+      letter-spacing: .4em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px
+    }
+
+    .footer-links {
+      list-style: none
+    }
+
+    .footer-links li {
+      margin-bottom: 10px
+    }
+
+    .footer-links a {
+      font-family: var(--font-ui);
+      font-size: .85rem;
+      color: var(--muted-light);
+      transition: color .3s
+    }
+
+    .footer-links a:hover {
+      color: var(--crimson-light)
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--glass-border);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-family: var(--font-ui);
+      font-size: .72rem;
+      color: var(--muted);
+      letter-spacing: .1em
+    }
+
+    .footer-copy em {
+      color: var(--crimson-light);
+      font-style: normal
+    }
+
+    .footer-craft {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: .8rem;
+      color: var(--muted)
+    }
+
+    /* ── STORY GRID ───────────────────────────────── */
+    .story-grid {
+      display: flex;
+      gap: 16px;
+      padding: 30px;
+      background: var(--panel);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .story-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .story-item {
+      flex: 0 0 280px;
+      scroll-snap-align: center;
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 9/16;
+      background: #000;
+      border: 1px solid var(--glass-border);
+      transition: transform 0.4s var(--ease-out), border-color 0.4s;
+      cursor: none;
+    }
+
+    .story-item:hover {
+      transform: translateY(-8px);
+      border-color: var(--crimson-dim);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .story-item video,
+    .story-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s var(--ease-cinema);
+    }
+
+    .story-item:hover video,
+    .story-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .story-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8, 8, 16, 0.95) 0%, rgba(8, 8, 16, 0.2) 50%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .story-item:hover .story-item-overlay {
+      opacity: 1;
+    }
+
+    .story-item-title {
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--white);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .story-video-controls {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 10;
+      background: rgba(8, 8, 16, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: none;
+      color: var(--white);
+      transition: background 0.3s, border-color 0.3s, transform 0.3s;
+    }
+
+    .story-video-controls:hover {
+      background: var(--crimson);
+      border-color: var(--crimson-light);
+      transform: scale(1.1);
+    }
+
+    /* ── MODAL ────────────────────────────────────── */
+    #modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9000;
+      background: rgba(8, 8, 16, .92);
+      backdrop-filter: blur(20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .4s, visibility .4s;
+      padding: 40px 20px;
+    }
+
+    #modal.open {
+      opacity: 1;
+      visibility: visible
+    }
+
+    .modal-box {
+      background: var(--panel);
+      border: 1px solid var(--glass-border);
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-top {
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--platinum-light)
+    }
+
+    .modal-meta {
+      font-family: var(--font-ui);
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4px
+    }
+
+    .modal-close {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 1.2rem;
+      cursor: none;
+      transition: all .3s;
+      flex-shrink: 0;
+    }
+
+    .modal-close:hover {
+      border-color: var(--crimson-dim);
+      color: var(--crimson-light)
+    }
+
+    .modal-body {
+      padding: 28px
+    }
+
+    .modal-video {
+      aspect-ratio: 16/9;
+      background: var(--surface);
+      border: 1px solid var(--glass-border)
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media(max-width:1024px) {
+      .owner-grid {
+        grid-template-columns: 1fr;
+        gap: 50px
+      }
+
+      .studio-intro {
+        grid-template-columns: 1fr;
+        gap: 40px
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 50px
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px
+      }
+
+      .testimonials-track {
+        grid-template-columns: 1fr
+      }
+
+      .insta-sections {
+        grid-template-columns: 1fr
+      }
+
+      .timeline-track {
+        flex-wrap: wrap
+      }
+
+      .timeline-item {
+        flex: 0 0 40%;
+        margin-bottom: 30px
+      }
+
+      .timeline-track::before {
+        display: none
+      }
+    }
+
+    @media(max-width:768px) {
+      section {
+        padding: 80px 5%
+      }
+
+      .nav-links,
+      .nav-cta {
+        display: none
+      }
+
+      .hamburger {
+        display: flex
+      }
+
+      .hero-title {
+        font-size: clamp(3rem, 15vw, 6rem)
+      }
+
+      .owner-stats {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .studio-gallery {
+        grid-template-columns: 1fr
+      }
+
+      .studio-img:first-child {
+        grid-column: auto;
+        aspect-ratio: 16/9
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 36px
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center
+      }
+
+      .portfolio-header {
+        flex-direction: column;
+        align-items: flex-start
+      }
+
+      .frames-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .extract-input-row {
+        flex-direction: column
+      }
+    }
+
+    @media(max-width:480px) {
+      .hero-actions {
+        flex-direction: column
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        width: 100%;
+        text-align: center
+      }
+
+      .timeline-item {
+        flex: 0 0 100%
+      }
+
+      .owner-stats {
+        grid-template-columns: 1fr
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="grain"></div>
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-logo">EVEREST <em>STUDIOS</em></div>
+    <div class="eq-bars">
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+    </div>
+    <div class="loader-sub">Hyderabad &middot; Premium Post-Production</div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <a href="#hero" class="nav-logo">
+      <div class="nav-logo-dot"></div>Everest Studios
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#owner">Artist</a></li>
+      <li><a href="#studio">Studio</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta"><span>Book Studio</span></a>
+    <div class="hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div id="mobile-nav">
+    <div class="mobile-close" onclick="closeMobileNav()">&#10005;</div>
+    <a href="#services" onclick="closeMobileNav()">Services</a>
+    <a href="#owner" onclick="closeMobileNav()">Artist</a>
+    <a href="#studio" onclick="closeMobileNav()">Studio</a>
+    <a href="#portfolio" onclick="closeMobileNav()">Portfolio</a>
+    <a href="#contact" onclick="closeMobileNav()">Book Studio</a>
+  </div>
+
+  <!-- ═══ HERO ═══════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-cinematic-bg">
+      <div class="light-ray"></div>
+      <div class="light-ray"></div>
+      <div class="light-ray"></div>
+      <div class="light-ray"></div>
+    </div>
+    <div class="film-perfs left">
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+    </div>
+    <div class="film-perfs right">
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Hyderabad &middot; Est. 2018</div>
+      <h1 class="hero-title">Crafting Sound.<br><span class="line2">Elevating Cinema.</span></h1>
+      <p class="hero-subtitle">High-end audio production for films, music &amp; media &mdash; where every frame
+        breathes.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary"><span>Book Studio</span></a>
+        <a href="#portfolio" class="btn-ghost">View Works</a>
+      </div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="wg" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="transparent" />
+          <stop offset="30%" stop-color="#c1121f" stop-opacity=".5" />
+          <stop offset="70%" stop-color="#c1121f" stop-opacity=".5" />
+          <stop offset="100%" stop-color="transparent" />
+        </linearGradient>
+      </defs>
+      <polyline id="hero-wave-line" fill="none" stroke="url(#wg)" stroke-width="1.5" />
+    </svg>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <div class="scroll-text">Scroll</div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICES ════════════════════════════════ -->
+  <section id="services">
+    <div class="services-header">
+      <div class="section-eyebrow reveal">Our Craft</div>
+      <h2 class="section-title reveal">Premium <em>Studio Services</em></h2>
+      <div class="section-divider reveal"></div>
+      <p class="section-sub reveal" style="margin:0 auto">World-class audio and film post-production crafted with
+        precision, passion, and decades of industry experience.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="service-num">01</span>
+        <span class="service-icon">🎙️</span>
+        <h3 class="service-title">Recording of Songs</h3>
+        <p class="service-desc">State-of-the-art recording booths with premium microphones, preamps, and a pristine
+          signal chain for vocals, instruments, and full orchestrations.</p>
+        <div class="service-wave" id="wave1"></div>
+      </div>
+      <div class="service-card reveal delay-1">
+        <span class="service-num">02</span>
+        <span class="service-icon">🎼</span>
+        <h3 class="service-title">Re-Recording</h3>
+        <p class="service-desc">Background score composition, dubbing sync, and complete re-recording sessions that
+          breathe life into every cinematic frame.</p>
+        <div class="service-wave" id="wave2"></div>
+      </div>
+      <div class="service-card reveal delay-2">
+        <span class="service-num">03</span>
+        <span class="service-icon">🎛️</span>
+        <h3 class="service-title">Mixing &amp; Mastering</h3>
+        <p class="service-desc">Precision mixing on industry-standard consoles and meticulous mastering for theatrical,
+          streaming, and broadcast delivery.</p>
+        <div class="service-wave" id="wave3"></div>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">04</span>
+        <span class="service-icon">🗣️</span>
+        <h3 class="service-title">Dubbing</h3>
+        <p class="service-desc">Professional dubbing for films, OTT content, documentaries, and commercials — ensuring
+          natural lip-sync and emotional authenticity.</p>
+        <div class="service-wave" id="wave4"></div>
+      </div>
+      <div class="service-card reveal delay-1">
+        <span class="service-num">05</span>
+        <span class="service-icon">🎬</span>
+        <h3 class="service-title">Film Editing</h3>
+        <p class="service-desc">Creative and technical film editing — picture cut, color grading prep, and editorial
+          workflow from rough cut to final delivery.</p>
+        <div class="service-wave" id="wave5"></div>
+      </div>
+      <div class="service-card reveal delay-2">
+        <span class="service-num">06</span>
+        <span class="service-icon">🔊</span>
+        <h3 class="service-title">Audio Post Production</h3>
+        <p class="service-desc">Complete audio post for movies &amp; media — Foley, ADR, sound design, 5.1/7.1 surround
+          mixing, and Dolby Atmos delivery.</p>
+        <div class="service-wave" id="wave6"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ OWNER ════════════════════════════════════ -->
+  <section id="owner">
+    <div class="owner-grid">
+      <div class="reveal-left">
+        <div class="owner-img-wrap">
+          <img src="Mahith Narayan_Owner.png" alt="Mahith Narayan"
+            style="width: 100%; height: 100%; object-fit: cover;">
+          <div class="owner-img-frame"></div>
+          <div class="owner-img-accent"></div>
+          <div class="owner-img-accent2"></div>
+          <div class="owner-badge">
+            <div class="owner-badge-label">Founder &amp; Director</div>
+            <div class="owner-badge-value">Everest Studios</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="section-eyebrow">The Artist</div>
+        <h2 class="owner-name">Mahith<br>Narayan</h2>
+        <div class="owner-tag">Singer &amp; Music Creator</div>
+        <p class="owner-bio">Mahith Narayan is a celebrated singer, music artist, and the visionary founder of Everest
+          Studios. With roots deep in the Telugu film industry, Mahith has lent his voice to some of the most memorable
+          songs in contemporary Telugu cinema, blending raw emotion with technical mastery.</p>
+        <p class="owner-bio">His journey from a passionate music student to a sought-after playback singer and studio
+          owner reflects an unwavering dedication to sonic excellence. At Everest Studios, Mahith brings together his
+          creative artistry and entrepreneurial spirit to create a world-class production environment for artists and
+          filmmakers alike.</p>
+        <div class="owner-stats">
+          <div class="stat-box">
+            <div class="stat-num" data-target="50" data-suffix="+">0+</div>
+            <div class="stat-label">Film Songs</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" data-target="50" data-suffix="+">0+</div>
+            <div class="stat-label">Albums</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" data-target="20" data-suffix="+">0+</div>
+            <div class="stat-label">Years Active</div>
+          </div>
+        </div>
+        <div class="owner-links">
+          <a href="https://www.instagram.com/mahith_narayan/" target="_blank" class="owner-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+            @mahith_narayan
+          </a>
+          <a href="https://www.instagram.com/evereststudioshyd/" target="_blank" class="owner-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+            Studio IG
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Timeline -->
+    <div class="career-timeline" style="margin-top:80px">
+      <div class="timeline-title">Career Highlights</div>
+      <div class="timeline-track">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2016</div>
+          <div class="timeline-event">Debut playback<br>in Telugu cinema</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2018</div>
+          <div class="timeline-event">Founded<br>Everest Studios</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2020</div>
+          <div class="timeline-event">Released first<br>private album</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2022</div>
+          <div class="timeline-event">50+ film songs<br>milestone</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2024</div>
+          <div class="timeline-event">Studio expansion<br>Dolby Atmos suite</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STUDIO ════════════════════════════════════ -->
+  <section id="studio">
+    <div class="studio-intro">
+      <div class="reveal-left">
+        <div class="section-eyebrow">The Space</div>
+        <h2 class="section-title">Where Sound<br><em>Comes Alive</em></h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="reveal-right">
+        <p class="section-sub">Our facility in the heart of Hyderabad houses premium recording booths, a world-class
+          mixing room, a Dolby Atmos-ready theatre, and cutting-edge equipment sourced from the world's finest
+          manufacturers.</p>
+        <br>
+        <p class="section-sub">Every surface is acoustically engineered. Every piece of gear is meticulously maintained.
+          Because great sound deserves a great environment.</p>
+      </div>
+    </div>
+    <div class="studio-gallery">
+      <div class="studio-img reveal">
+        <img src="The Space/Main Console.png" alt="Main Console"
+          style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;">
+        <div class="studio-img-inner" style="background: rgba(0,0,0,0.4)">🎚️</div>
+        <div class="studio-img-label">Main Mixing Console &middot; SSL &middot; Neve</div>
+      </div>
+      <div class="studio-img reveal delay-1">
+        <img src="The Space/Voice Recording Booth A.png" alt="Voice Recording Booth A"
+          style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;">
+        <div class="studio-img-inner" style="background: rgba(0,0,0,0.4)">🎙️</div>
+        <div class="studio-img-label">Vocal Recording Booth A</div>
+      </div>
+      <div class="studio-img reveal delay-2">
+        <img src="The Space/Film Dubbing Theatre.png" alt="Film Dubbing Theatre"
+          style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;">
+        <div class="studio-img-inner" style="background: rgba(0,0,0,0.4)">🎬</div>
+        <div class="studio-img-label">Film Dubbing Theatre</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PORTFOLIO ══════════════════════════════════ -->
+  <section id="portfolio">
+    <div class="portfolio-header">
+      <div>
+        <div class="section-eyebrow reveal">Our Work</div>
+        <h2 class="section-title reveal">Selected <em>Projects</em></h2>
+      </div>
+      <div class="portfolio-tabs reveal">
+        <button class="tab-btn active" onclick="filterPortfolio('all',this)">All</button>
+        <button class="tab-btn" onclick="filterPortfolio('film',this)">Films</button>
+        <button class="tab-btn" onclick="filterPortfolio('song',this)">Songs</button>
+        <button class="tab-btn" onclick="filterPortfolio('album',this)">Albums</button>
+      </div>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item" data-cat="film">
+        <div class="portfolio-thumb">🎬</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Telugu Film</div>
+          <div class="portfolio-name">Premante Idhena</div>
+          <button class="portfolio-play" onclick="openModal('video','Premante Idhena','Film &middot; 2023')">
+            <div class="play-circle">&#9654;</div> Preview
+          </button>
+        </div>
+      </div>
+      <div class="portfolio-item" data-cat="song">
+        <div class="portfolio-thumb">🎵</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Playback Song</div>
+          <div class="portfolio-name">Manasulo Merise</div>
+          <button class="portfolio-play" onclick="openModal('audio','Manasulo Merise','Song &middot; 2023')">
+            <div class="play-circle">&#9654;</div> Preview
+          </button>
+        </div>
+      </div>
+      <div class="portfolio-item" data-cat="album">
+        <div class="portfolio-thumb">🎼</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Private Album</div>
+          <div class="portfolio-name">Ekantha Velalo</div>
+          <button class="portfolio-play" onclick="openModal('audio','Ekantha Velalo','Album &middot; 2022')">
+            <div class="play-circle">&#9654;</div> Preview
+          </button>
+        </div>
+      </div>
+      <div class="portfolio-item" data-cat="film">
+        <div class="portfolio-thumb">🎞️</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Telugu Film &middot; BGM</div>
+          <div class="portfolio-name">Nuvvu Nenu Prema</div>
+          <button class="portfolio-play" onclick="openModal('audio','Nuvvu Nenu Prema','BGM &middot; 2023')">
+            <div class="play-circle">&#9654;</div> Preview
+          </button>
+        </div>
+      </div>
+      <div class="portfolio-item" data-cat="song">
+        <div class="portfolio-thumb">🎤</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Independent Single</div>
+          <div class="portfolio-name">Haayigaa</div>
+          <button class="portfolio-play" onclick="openModal('audio','Haayigaa','Single &middot; 2024')">
+            <div class="play-circle">&#9654;</div> Preview
+          </button>
+        </div>
+      </div>
+      <div class="portfolio-item" data-cat="album">
+        <div class="portfolio-thumb">🎹</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Private Album</div>
+          <div class="portfolio-name">Aakasam Ammayi</div>
+          <button class="portfolio-play" onclick="openModal('audio','Aakasam Ammayi','Album &middot; 2024')">
+            <div class="play-circle">&#9654;</div> Preview
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══════════════════════════════ -->
+  <section id="testimonials">
+    <div class="testimonials-inner">
+      <div style="text-align:center">
+        <div class="section-eyebrow reveal" style="justify-content:center;margin-bottom:16px">What They Say</div>
+        <h2 class="section-title reveal">Voices from the <em>Industry</em></h2>
+        <div class="section-divider reveal" style="margin:20px auto"></div>
+      </div>
+      <div class="testimonials-track">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-text">Working with Everest Studios was a revelation. The acoustic environment and
+            Mahith's ear for detail elevated our entire background score to a cinematic level we hadn't imagined
+            possible.</div>
+          <div class="testimonial-author">
+            <div class="author-avatar">🎬</div>
+            <div>
+              <div class="author-name">Ravi Shankar</div>
+              <div class="author-role">Film Director</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal delay-2">
+          <div class="testimonial-text">Mahith Narayan's voice carries a weight that is rare in modern Telugu film
+            music. Recording at Everest Studios feels like working in a world-class international facility.</div>
+          <div class="testimonial-author">
+            <div class="author-avatar">🎵</div>
+            <div>
+              <div class="author-name">Priya Lakshmi</div>
+              <div class="author-role">Music Producer</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal delay-3">
+          <div class="testimonial-text">The mixing and mastering we got from Everest Studios gave our project a
+            theatrical sound that stands alongside the best in the industry. Absolutely world-class.</div>
+          <div class="testimonial-author">
+            <div class="author-avatar">🏆</div>
+            <div>
+              <div class="author-name">Kiran Reddy</div>
+              <div class="author-role">OTT Producer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-video-wrap reveal" style="max-width: 1200px; overflow: hidden;">
+        <div class="testimonial-video-label"
+          style="display: flex; justify-content: space-between; align-items: center;">
+          <span>Studio Testimonial &middot; Watch Our Story</span>
+          <span style="font-size: 1rem; color: var(--crimson-light); cursor: none;">&harr; Scroll</span>
+        </div>
+        <div class="story-grid">
+          <div class="story-item">
+            <video src="Watch our story section/Everest Studios evereststudioshyd Threads Say more.mp4" autoplay loop
+              muted playsinline class="story-vid"></video>
+            <div class="story-video-controls" onclick="toggleMute(this)">🔇</div>
+            <div class="story-item-overlay">
+              <div class="story-item-title">Everest Studios Threads - Say More</div>
+            </div>
+          </div>
+          <div class="story-item">
+            <video
+              src="Watch our story section/Anaganaga akasham undhi song andariki gurthundhi kadhu, Aa song fame SAI KIRAN ippudu bulliteran.mp4"
+              autoplay loop muted playsinline class="story-vid"></video>
+            <div class="story-video-controls" onclick="toggleMute(this)">🔇</div>
+            <div class="story-item-overlay">
+              <div class="story-item-title">Anaganaga akasham undhi song fame SAI KIRAN</div>
+            </div>
+          </div>
+          <div class="story-item">
+            <video src="Watch our story section/Everest Studios evereststudioshyd Threads Say more (1).mp4" autoplay
+              loop muted playsinline class="story-vid"></video>
+            <div class="story-video-controls" onclick="toggleMute(this)">🔇</div>
+            <div class="story-item-overlay">
+              <div class="story-item-title">Everest Studios Threads - Say More</div>
+            </div>
+          </div>
+          <div class="story-item">
+            <img
+              src="Watch our story section/Her Energy! Her Modulations! Her voice! Everything feels Magical! One and only @iammangli Maam!P.jpg"
+              alt="Mangli">
+            <div class="story-item-overlay">
+              <div class="story-item-title">Her Energy! Her Modulations! Her voice! Everything feels Magical! One and
+                only @iammangli Maam!</div>
+            </div>
+          </div>
+          <div class="story-item">
+            <video src="Watch our story section/Everest Studios evereststudioshyd Threads Say more (2).mp4" autoplay
+              loop muted playsinline class="story-vid"></video>
+            <div class="story-video-controls" onclick="toggleMute(this)">🔇</div>
+            <div class="story-item-overlay">
+              <div class="story-item-title">Everest Studios Threads - Say More</div>
+            </div>
+          </div>
+          <div class="story-item">
+            <img
+              src="Watch our story section/Super energetic soul she is @_udayabhanu recorded a small bit get ready for some good news! Musi.jpg"
+              alt="Udayabhanu">
+            <div class="story-item-overlay">
+              <div class="story-item-title">Super energetic soul she is @_udayabhanu recorded a small bit</div>
+            </div>
+          </div>
+          <div class="story-item">
+            <img src="Watch our story section/We are happy to have you with us maam ✨.jpg" alt="Happy to have you">
+            <div class="story-item-overlay">
+              <div class="story-item-title">We are happy to have you with us maam ✨</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══ PIANO ══════════════════════════════════════ -->
+  <section id="piano">
+    <div style="text-align:center;margin-bottom:50px">
+      <div class="section-eyebrow reveal" style="justify-content:center">Interactive Experience</div>
+      <h2 class="section-title reveal">Play Our <em>Grand Piano</em></h2>
+      <p class="section-sub reveal" style="margin:16px auto 0;text-align:center">Click any key or use keyboard shortcuts
+        — hear real piano tones powered by the Web Audio API.</p>
+    </div>
+    <div class="piano-container reveal">
+      <div class="piano-body">
+        <div class="piano-brand">Everest Studios &nbsp;&middot;&nbsp; Grand Concert</div>
+        <div class="piano-display">
+          <div>
+            <div class="piano-display-label">Now Playing</div>
+            <div class="piano-display-note" id="piano-note-display">&mdash;</div>
+          </div>
+          <div style="text-align:right">
+            <div class="piano-display-label">Keyboard Shortcuts</div>
+            <div class="piano-display-hint">A S D F G H J &nbsp;|&nbsp; W E T Y U</div>
+          </div>
+        </div>
+        <div class="piano-keys-wrap">
+          <div class="piano-keys" id="piano-keys"></div>
+        </div>
+        <div class="piano-pedals">
+          <div class="pedal" style="width:36px"></div>
+          <div class="pedal" style="width:50px"></div>
+          <div class="pedal" style="width:36px"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ════════════════════════════════════ -->
+  <section id="contact">
+    <div style="margin-bottom:60px">
+      <div class="section-eyebrow reveal">Get In Touch</div>
+      <h2 class="section-title reveal">Book Your <em>Session</em></h2>
+      <div class="section-divider reveal"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal-left">
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div>
+            <div class="contact-detail-label">Location</div>
+            <div class="contact-detail-value">Everest Studios, Hyderabad,<br>Telangana, India</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <div>
+            <div class="contact-detail-label">Phone</div>
+            <div class="contact-detail-value">+91 XXXXX XXXXX</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉️</div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-value">info@evereststudios.in</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🕐</div>
+          <div>
+            <div class="contact-detail-label">Studio Hours</div>
+            <div class="contact-detail-value">Mon &ndash; Sat &middot; 9 AM &ndash; 10 PM<br>Sunday by Appointment</div>
+          </div>
+        </div>
+        <a href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I'd%20like%20to%20book%20a%20session%20at%20Everest%20Studios"
+          target="_blank" class="wa-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+          </svg>
+          WhatsApp Us
+        </a>
+      </div>
+      <div class="reveal-right">
+        <div class="form-row"><label class="form-label">Full Name</label><input type="text" name="name"
+            class="form-input" placeholder="Your Name" /></div>
+        <div class="form-row"><label class="form-label">Email Address</label><input type="email" name="email"
+            class="form-input" placeholder="your@email.com" /></div>
+        <div class="form-row"><label class="form-label">Phone Number</label><input type="tel" name="phone"
+            class="form-input" placeholder="+91 XXXXX XXXXX" /></div>
+        <div class="form-row">
+          <label class="form-label">Service Required</label>
+          <select name="service" class="form-select">
+            <option value="" disabled selected>Select a service</option>
+            <option>Recording of Songs</option>
+            <option>Re-Recording / Background Score</option>
+            <option>Mixing &amp; Mastering</option>
+            <option>Dubbing</option>
+            <option>Film Editing</option>
+            <option>Audio Post Production</option>
+            <option>Other / Enquiry</option>
+          </select>
+        </div>
+        <div class="form-row"><label class="form-label">Project Details</label><textarea name="message"
+            class="form-textarea"
+            placeholder="Tell us about your project — genre, timeline, requirements..."></textarea></div>
+        <button class="form-submit" onclick="handleFormSubmit(event)">Send Enquiry</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═════════════════════════════════════ -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Everest <em>Studios</em></div>
+        <p class="footer-tagline">Crafting Sound. Elevating Cinema.<br>Premium audio &amp; film post-production<br>from
+          the heart of Hyderabad.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/evereststudioshyd/" target="_blank" class="social-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/mahith_narayan/" target="_blank" class="social-icon">🎤</a>
+          <a href="https://www.threads.com/@evereststudioshyd" target="_blank" class="social-icon">🧵</a>
+          <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="social-icon">💬</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">Recording</a></li>
+          <li><a href="#services">Re-Recording</a></li>
+          <li><a href="#services">Mixing &amp; Mastering</a></li>
+          <li><a href="#services">Dubbing</a></li>
+          <li><a href="#services">Film Editing</a></li>
+          <li><a href="#services">Audio Post</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#owner">About Mahith</a></li>
+          <li><a href="#studio">The Studio</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#instagram">Instagram</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/evereststudioshyd/" target="_blank">Studio Instagram</a></li>
+          <li><a href="https://www.instagram.com/mahith_narayan/" target="_blank">Artist Instagram</a></li>
+          <li><a href="https://www.threads.com/@evereststudioshyd" target="_blank">Threads</a></li>
+          <li><a href="#contact">Book a Session</a></li>
+          <li><a href="mailto:info@evereststudios.in">Email Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 <em>Everest Studios</em>. All rights reserved. Hyderabad, India.</div>
+      <div class="footer-craft">Crafted for cinema.</div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div id="modal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-box">
+      <div class="modal-top">
+        <div>
+          <div class="modal-title" id="modal-title"></div>
+          <div class="modal-meta" id="modal-meta"></div>
+        </div>
+        <button class="modal-close" onclick="closeModal()">&#10005;</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    'use strict';
+
+    /* ── CURSOR ─────────────────────────────────────── */
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+    });
+    (function animRing() {
+      rx += (mx - rx) * .12; ry += (my - ry) * .12;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(animRing);
+    })();
+    document.querySelectorAll('a,button,.service-card,.portfolio-item,.insta-post,.studio-img,.tab-btn,.frame-item,.story-item,.story-video-controls').forEach(el => {
+      el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); ring.classList.add('hover') });
+      el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); ring.classList.remove('hover') });
+    });
+
+    /* ── LOADER ─────────────────────────────────────── */
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loader').classList.add('hide');
+        document.body.style.overflow = 'auto';
+      }, 2400);
+    });
+
+    /* ── NAV ────────────────────────────────────────── */
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    /* ── MOBILE NAV ─────────────────────────────────── */
+    function toggleMobileNav() {
+      const mn = document.getElementById('mobile-nav');
+      mn.style.display = mn.style.display === 'flex' ? 'none' : 'flex';
+    }
+    function closeMobileNav() { document.getElementById('mobile-nav').style.display = 'none' }
+
+    /* ── HERO PARALLAX ──────────────────────────────── */
+    window.addEventListener('scroll', () => {
+      const heroBg = document.querySelector('.hero-cinematic-bg');
+      if (heroBg) heroBg.style.transform = `translateY(${window.scrollY * .28}px)`;
+    });
+
+    /* ── HERO WAVEFORM ──────────────────────────────── */
+    function drawHeroWave() {
+      const pts = []; const W = window.innerWidth; const t = Date.now() / 1000;
+      for (let x = 0; x <= W; x += 10) {
+        const y = 80 + Math.sin((x / W) * Math.PI * 5 + t) * 20 + Math.sin((x / W) * Math.PI * 11 + t * 1.4) * 10 + Math.sin((x / W) * Math.PI * 2.5 + t * .7) * 7;
+        pts.push(x + ',' + y);
+      }
+      const wl = document.getElementById('hero-wave-line');
+      if (wl) wl.setAttribute('points', pts.join(' '));
+      requestAnimationFrame(drawHeroWave);
+    }
+    drawHeroWave();
+
+    /* ── SCROLL REVEAL ──────────────────────────────── */
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') });
+    }, { threshold: .1 });
+    document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.timeline-item').forEach(el => revealObs.observe(el));
+
+    /* ── SERVICE WAVES ──────────────────────────────── */
+    for (let i = 1; i <= 6; i++) {
+      const w = document.getElementById('wave' + i);
+      if (!w) continue;
+      for (let b = 0; b < 18; b++) {
+        const bar = document.createElement('div');
+        bar.className = 's-bar';
+        bar.style.setProperty('--d', (0.35 + Math.random() * .9) + 's');
+        bar.style.animationDelay = (Math.random() * .5) + 's';
+        bar.style.height = (25 + Math.random() * 75) + '%';
+        w.appendChild(bar);
+      }
+    }
+
+    /* ── PORTFOLIO FILTER ───────────────────────────── */
+    function filterPortfolio(cat, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.portfolio-item').forEach(item => {
+        item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'block' : 'none';
+      });
+    }
+
+    /* ── MODAL ──────────────────────────────────────── */
+    function openModal(type, title, meta) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-meta').textContent = meta;
+      const body = document.getElementById('modal-body');
+      if (type === 'audio') {
+        body.innerHTML = `<p style="color:var(--muted-light);font-size:.88rem;margin-bottom:18px;font-family:var(--font-ui)">Audio preview — connect a media source to populate this player.</p><div style="background:var(--surface);border:1px solid var(--glass-border);border-radius:2px;padding:36px;text-align:center"><div style="font-size:3.5rem;margin-bottom:14px">🎵</div><p style="font-family:var(--font-ui);font-size:.7rem;color:var(--muted);letter-spacing:.2em;text-transform:uppercase">Audio Player</p><p style="font-family:var(--font-ui);font-size:.7rem;color:var(--crimson-light);margin-top:10px">Connect Spotify / SoundCloud / custom media API</p></div>`;
+      } else {
+        body.innerHTML = `<p style="color:var(--muted-light);font-size:.88rem;margin-bottom:18px;font-family:var(--font-ui)">Video preview — connect a media source to populate this player.</p><div class="modal-video" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px"><div style="font-size:4rem">🎬</div><p style="font-family:var(--font-ui);font-size:.7rem;color:var(--muted);letter-spacing:.2em;text-transform:uppercase">Video Player</p><p style="font-family:var(--font-ui);font-size:.7rem;color:var(--crimson-light)">Connect YouTube / Vimeo / custom video CDN</p></div>`;
+      }
+      document.getElementById('modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.remove('open');
+      document.body.style.overflow = 'auto';
+    }
+    function closeModalOnBackdrop(e) { if (e.target === document.getElementById('modal')) closeModal() }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal() });
+
+    /* ── INSTAGRAM GRIDS ────────────────────────────── */
+    const ownerEmojis = ['🎤', '🎵', '🎶', '🎼', '🎸', '🎹'];
+    const studioEmojis = ['🎛️', '🎙️', '🔊', '🎬', '🎞️', '📡'];
+    function buildInstaGrid(gridId, emojis, url) {
+      const g = document.getElementById(gridId); if (!g) return;
+      for (let i = 0; i < 6; i++) {
+        const post = document.createElement('div');
+        post.className = 'insta-post';
+        post.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--surface);font-size:2rem">${emojis[i % emojis.length]}</div><div class="insta-post-overlay">&#x2197;</div>`;
+        post.onclick = () => window.open(url, '_blank');
+        g.appendChild(post);
+      }
+    }
+    buildInstaGrid('owner-insta-grid', ownerEmojis, 'https://www.instagram.com/mahith_narayan/');
+    buildInstaGrid('studio-insta-grid', studioEmojis, 'https://www.instagram.com/evereststudioshyd/');
+
+    /* ── PIANO ENGINE ────────────────────────────────── */
+    (function () {
+      const NOTES = [
+        { n: 'C3', f: 130.81, t: 'w' }, { n: 'C#3', f: 138.59, t: 'b' },
+        { n: 'D3', f: 146.83, t: 'w' }, { n: 'D#3', f: 155.56, t: 'b' },
+        { n: 'E3', f: 164.81, t: 'w' },
+        { n: 'F3', f: 174.61, t: 'w' }, { n: 'F#3', f: 185.00, t: 'b' },
+        { n: 'G3', f: 196.00, t: 'w' }, { n: 'G#3', f: 207.65, t: 'b' },
+        { n: 'A3', f: 220.00, t: 'w' }, { n: 'A#3', f: 233.08, t: 'b' },
+        { n: 'B3', f: 246.94, t: 'w' },
+        { n: 'C4', f: 261.63, t: 'w' }, { n: 'C#4', f: 277.18, t: 'b' },
+        { n: 'D4', f: 293.66, t: 'w' }, { n: 'D#4', f: 311.13, t: 'b' },
+        { n: 'E4', f: 329.63, t: 'w' },
+        { n: 'F4', f: 349.23, t: 'w' }, { n: 'F#4', f: 369.99, t: 'b' },
+        { n: 'G4', f: 392.00, t: 'w' }, { n: 'G#4', f: 415.30, t: 'b' },
+        { n: 'A4', f: 440.00, t: 'w' }, { n: 'A#4', f: 466.16, t: 'b' },
+        { n: 'B4', f: 493.88, t: 'w' },
+        { n: 'C5', f: 523.25, t: 'w' }
+      ];
+      const KB = { 'a': 'C4', 'w': 'C#4', 's': 'D4', 'e': 'D#4', 'd': 'E4', 'f': 'F4', 't': 'F#4', 'g': 'G4', 'y': 'G#4', 'h': 'A4', 'u': 'A#4', 'j': 'B4', 'k': 'C5' };
+      let actx = null;
+      function getCtx() { if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)(); if (actx.state === 'suspended') actx.resume(); return actx; }
+
+      function playNote(freq, name) {
+        const ctx = getCtx(), now = ctx.currentTime;
+        document.getElementById('piano-note-display').textContent = name;
+        // Master
+        const master = ctx.createGain();
+        master.gain.setValueAtTime(0.001, now);
+        master.gain.linearRampToValueAtTime(0.55, now + 0.006);
+        master.gain.exponentialRampToValueAtTime(0.22, now + 0.18);
+        master.gain.exponentialRampToValueAtTime(0.001, now + 3.2);
+        // Compressor
+        const comp = ctx.createDynamicsCompressor();
+        comp.threshold.value = -14; comp.ratio.value = 5;
+        master.connect(comp); comp.connect(ctx.destination);
+        // Filter (string brightness)
+        const flt = ctx.createBiquadFilter();
+        flt.type = 'lowpass';
+        flt.frequency.setValueAtTime(freq * 10, now);
+        flt.frequency.exponentialRampToValueAtTime(freq * 2.5, now + 0.25);
+        flt.Q.value = 0.8;
+        flt.connect(master);
+        // Harmonics
+        [[1, 1.0], [2, 0.55], [3, 0.22], [4, 0.12], [5, 0.07], [6, 0.04], [7, 0.02]].forEach(([n, g]) => {
+          const o = ctx.createOscillator(), gn = ctx.createGain();
+          o.type = 'sine'; o.frequency.value = freq * n;
+          gn.gain.setValueAtTime(g * 0.28, now);
+          gn.gain.exponentialRampToValueAtTime(0.001, now + (3.2 / Math.sqrt(n)));
+          o.connect(gn); gn.connect(flt);
+          o.start(now); o.stop(now + 3.5);
+        });
+        // Hammer transient noise
+        const bsz = Math.floor(ctx.sampleRate * 0.022);
+        const buf = ctx.createBuffer(1, bsz, ctx.sampleRate);
+        const d = buf.getChannelData(0);
+        for (let i = 0; i < bsz; i++)d[i] = (Math.random() * 2 - 1);
+        const ns = ctx.createBufferSource(), nf = ctx.createBiquadFilter(), ng = ctx.createGain();
+        ns.buffer = buf; nf.type = 'bandpass'; nf.frequency.value = freq * 2.2; nf.Q.value = 0.6;
+        ng.gain.setValueAtTime(0.09, now); ng.gain.exponentialRampToValueAtTime(0.001, now + 0.025);
+        ns.connect(nf); nf.connect(ng); ng.connect(comp);
+        ns.start(now); ns.stop(now + 0.03);
+      }
+
+      // Build keyboard
+      const wrap = document.getElementById('piano-keys');
+      if (!wrap) return;
+      const whites = NOTES.filter(n => n.t === 'w');
+      const wCount = whites.length;
+      // White keys
+      whites.forEach((note, wi) => {
+        const el = document.createElement('div');
+        el.className = 'pk-white'; el.dataset.note = note.n;
+        const shortcut = Object.entries(KB).find(([k, v]) => v === note.n);
+        el.innerHTML = `<span class="kl">${shortcut ? shortcut[0].toUpperCase() : ''}</span>`;
+        el.addEventListener('mousedown', e => { e.preventDefault(); playNote(note.f, note.n); el.classList.add('active'); });
+        el.addEventListener('mouseup', () => el.classList.remove('active'));
+        el.addEventListener('mouseleave', () => el.classList.remove('active'));
+        el.addEventListener('touchstart', e => { e.preventDefault(); playNote(note.f, note.n); el.classList.add('active'); }, { passive: false });
+        el.addEventListener('touchend', () => el.classList.remove('active'));
+        wrap.appendChild(el);
+      });
+      // Black keys — positioned after rendering
+      requestAnimationFrame(() => {
+        const wEls = wrap.querySelectorAll('.pk-white');
+        const wW = wEls[0] ? wEls[0].offsetWidth : 52;
+        NOTES.forEach((note, ni) => {
+          if (note.t !== 'b') return;
+          // find preceding white key index
+          let wIdx = 0, count = 0;
+          for (let i = 0; i < ni; i++) { if (NOTES[i].t === 'w') count++; }
+          wIdx = count - 1;
+          const leftPx = wIdx * wW + wW * 0.62;
+          const el = document.createElement('div');
+          el.className = 'pk-black'; el.dataset.note = note.n;
+          el.style.left = leftPx + 'px';
+          const shortcut = Object.entries(KB).find(([k, v]) => v === note.n);
+          if (shortcut) el.title = shortcut[0].toUpperCase();
+          el.addEventListener('mousedown', e => { e.preventDefault(); playNote(note.f, note.n); el.classList.add('active'); });
+          el.addEventListener('mouseup', () => el.classList.remove('active'));
+          el.addEventListener('mouseleave', () => el.classList.remove('active'));
+          el.addEventListener('touchstart', e => { e.preventDefault(); playNote(note.f, note.n); el.classList.add('active'); }, { passive: false });
+          el.addEventListener('touchend', () => el.classList.remove('active'));
+          wrap.appendChild(el);
+        });
+      });
+      // Keyboard input — skip if user is typing in a form field
+      document.addEventListener('keydown', e => {
+        if (e.repeat) return;
+        const tag = document.activeElement.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+        const noteName = KB[e.key.toLowerCase()];
+        if (!noteName) return;
+        const found = NOTES.find(n => n.n === noteName);
+        if (!found) return;
+        playNote(found.f, found.n);
+        const el = wrap.querySelector(`[data-note="${noteName}"]`);
+        if (el) el.classList.add('active');
+      });
+      document.addEventListener('keyup', e => {
+        const tag = document.activeElement.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+        const noteName = KB[e.key.toLowerCase()];
+        if (!noteName) return;
+        const el = wrap.querySelector(`[data-note="${noteName}"]`);
+        if (el) el.classList.remove('active');
+      });
+    })();
+
+    /* ── STORY VIDEO MUTE ───────────────────────────── */
+    function toggleMute(btn) {
+      const vid = btn.parentElement.querySelector('video');
+      if (vid) {
+        vid.muted = !vid.muted;
+        btn.textContent = vid.muted ? '🔇' : '🔊';
+      }
+    }
+
+    /* ── FORM — Formspree + localStorage + toast ───── */
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const btn = e.target;
+      const form = btn.closest('.contact-grid').querySelector('.reveal-right');
+      const inputs = form.querySelectorAll('.form-input,.form-select,.form-textarea');
+      const labels = form.querySelectorAll('.form-label');
+      // Build data object
+      const entry = { id: Date.now(), submittedAt: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) };
+      const formData = new FormData();
+      inputs.forEach((inp, i) => {
+        const label = labels[i] ? labels[i].textContent.trim() : 'field_' + i;
+        entry[label] = inp.value;
+        if (inp.name) formData.append(inp.name, inp.value);
+      });
+      // Backup to localStorage
+      const key = 'evereststudios_enquiries';
+      const existing = JSON.parse(localStorage.getItem(key) || '[]');
+      existing.push(entry);
+      localStorage.setItem(key, JSON.stringify(existing));
+      // Animate button to sending state
+      const orig = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.style.opacity = '.7';
+      btn.disabled = true;
+      // POST to Formspree
+      fetch('https://formspree.io/f/meevbrgw', {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' }
+      })
+        .then(res => {
+          if (res.ok) {
+            btn.textContent = '\u2713 Enquiry Sent!';
+            btn.style.background = '#25d366';
+            btn.style.opacity = '1';
+            btn.disabled = false;
+            showToast('\u2705 Enquiry sent successfully! We will contact you shortly.');
+            inputs.forEach(inp => inp.tagName === 'SELECT' ? inp.selectedIndex = 0 : inp.value = '');
+            setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 3500);
+          } else {
+            btn.textContent = '\u26a0 Try Again';
+            btn.style.background = 'var(--crimson)';
+            btn.style.opacity = '1';
+            btn.disabled = false;
+            showToast('\u26a0 Something went wrong. Please try WhatsApp or email.');
+            setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 3500);
+          }
+        })
+        .catch(() => {
+          btn.textContent = '\u26a0 Try Again';
+          btn.style.background = 'var(--crimson)';
+          btn.style.opacity = '1';
+          btn.disabled = false;
+          showToast('\u26a0 Network error. Enquiry saved locally — we will follow up.');
+          setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 3500);
+        });
+    }
+    function showToast(msg) {
+      let t = document.getElementById('es-toast');
+      if (!t) {
+        t = document.createElement('div');
+        t.id = 'es-toast';
+        t.style.cssText = 'position:fixed;bottom:36px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--panel);border:1px solid rgba(0,255,100,.2);color:var(--platinum-light);font-family:var(--font-ui);font-size:.82rem;letter-spacing:.08em;padding:16px 32px;border-radius:4px;box-shadow:0 8px 40px rgba(0,0,0,.6);z-index:9995;transition:transform .5s cubic-bezier(.16,1,.3,1),opacity .5s;opacity:0;white-space:nowrap;';
+        document.body.appendChild(t);
+      }
+      t.textContent = msg;
+      requestAnimationFrame(() => {
+        t.style.transform = 'translateX(-50%) translateY(0)';
+        t.style.opacity = '1';
+        setTimeout(() => {
+          t.style.transform = 'translateX(-50%) translateY(100px)';
+          t.style.opacity = '0';
+        }, 4000);
+      });
+    }
+
+    /* ── STAT COUNTERS ──────────────────────────────── */
+    function animateCounters() {
+      document.querySelectorAll('.stat-num[data-target]').forEach(el => {
+        const target = parseInt(el.dataset.target); const suffix = el.dataset.suffix || '';
+        let current = 0; const step = target / 60;
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = Math.floor(current) + suffix;
+          if (current >= target) clearInterval(timer);
+        }, 16);
+      });
+    }
+    const counterObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { animateCounters(); counterObs.disconnect(); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+    const statWrap = document.querySelector('.owner-stats');
+    if (statWrap) counterObs.observe(statWrap);
+    else { const ownerSec = document.getElementById('owner'); if (ownerSec) counterObs.observe(ownerSec); }
+  </script>
+</body>
+
+</html>

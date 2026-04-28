@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Everest Studios | Premium Audio & Film Post-Production Hyderabad</title>
+  <meta name="description"
+    content="Hyderabad's premier post-production studio specializing in song recording, mixing, mastering, dubbing, and film editing. Founded by Mahith Narayan.">
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="grain"></div>
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-logo">EVEREST <em>STUDIOS</em></div>
+    <div class="eq-bars">
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+    </div>
+    <div class="loader-sub">Hyderabad &middot; Premium Post-Production</div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <a href="#hero" class="nav-logo">
+      <div class="nav-logo-dot"></div>Everest Studios
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#owner">Artist</a></li>
+      <li><a href="#studio">Studio</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta"><span>Book Studio</span></a>
+    <div class="hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div id="mobile-nav">
+    <div class="mobile-close" onclick="closeMobileNav()">&#10005;</div>
+    <a href="#services" onclick="closeMobileNav()">Services</a>
+    <a href="#owner" onclick="closeMobileNav()">Artist</a>
+    <a href="#studio" onclick="closeMobileNav()">Studio</a>
+    <a href="#portfolio" onclick="closeMobileNav()">Portfolio</a>
+    <a href="#contact" onclick="closeMobileNav()">Book Studio</a>
+  </div>
+
+  <!-- ═══ HERO ═══════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-cinematic-bg">
+      <div class="light-ray"></div>
+      <div class="light-ray"></div>
+      <div class="light-ray"></div>
+      <div class="light-ray"></div>
+    </div>
+    <div class="film-perfs left">
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+    </div>
+    <div class="film-perfs right">
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+      <div class="film-perf"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Hyderabad &middot; Est. 2018</div>
+      <h1 class="hero-title">Crafting Sound.<br><span class="line2">Elevating Cinema.</span></h1>
+      <p class="hero-subtitle">High-end audio production for films, music &amp; media &mdash; where every frame breathes.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary"><span>Book Studio</span></a>
+        <a href="#portfolio" class="btn-ghost">View Works</a>
+      </div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="wg" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="transparent" />
+          <stop offset="30%" stop-color="#c1121f" stop-opacity=".5" />
+          <stop offset="70%" stop-color="#c1121f" stop-opacity=".5" />
+          <stop offset="100%" stop-color="transparent" />
+        </linearGradient>
+      </defs>
+      <polyline id="hero-wave-line" fill="none" stroke="url(#wg)" stroke-width="1.5" />
+    </svg>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <div class="scroll-text">Scroll</div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICES ════════════════════════════════ -->
+  <section id="services">
+    <div class="services-header">
+      <div class="section-eyebrow reveal">Our Craft</div>
+      <h2 class="section-title reveal">Premium <em>Studio Services</em></h2>
+      <div class="section-divider reveal"></div>
+      <p class="section-sub reveal" style="margin:0 auto">World-class audio and film post-production crafted with precision, passion, and decades of industry experience.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="service-num">01</span>
+        <span class="service-icon">🎙️</span>
+        <h3 class="service-title">Recording of Songs</h3>
+        <p class="service-desc">State-of-the-art recording booths with premium microphones, preamps, and a pristine signal chain for vocals, instruments, and full orchestrations.</p>
+        <div class="service-wave" id="wave1"></div>
+      </div>
+      <div class="service-card reveal delay-1">
+        <span class="service-num">02</span>
+        <span class="service-icon">🎼</span>
+        <h3 class="service-title">Re-Recording</h3>
+        <p class="service-desc">Background score composition, dubbing sync, and complete re-recording sessions that breathe life into every cinematic frame.</p>
+        <div class="service-wave" id="wave2"></div>
+      </div>
+      <div class="service-card reveal delay-2">
+        <span class="service-num">03</span>
+        <span class="service-icon">🎛️</span>
+        <h3 class="service-title">Mixing &amp; Mastering</h3>
+        <p class="service-desc">Precision mixing on industry-standard consoles and meticulous mastering for theatrical, streaming, and broadcast delivery.</p>
+        <div class="service-wave" id="wave3"></div>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">04</span>
+        <span class="service-icon">🗣️</span>
+        <h3 class="service-title">Dubbing</h3>
+        <p class="service-desc">Professional dubbing for films, OTT content, documentaries, and commercials — ensuring natural lip-sync and emotional authenticity.</p>
+        <div class="service-wave" id="wave4"></div>
+      </div>
+      <div class="service-card reveal delay-1">
+        <span class="service-num">05</span>
+        <span class="service-icon">🎬</span>
+        <h3 class="service-title">Film Editing</h3>
+        <p class="service-desc">Creative and technical film editing — picture cut, color grading prep, and editorial workflow from rough cut to final delivery.</p>
+        <div class="service-wave" id="wave5"></div>
+      </div>
+      <div class="service-card reveal delay-2">
+        <span class="service-num">06</span>
+        <span class="service-icon">🔊</span>
+        <h3 class="service-title">Audio Post Production</h3>
+        <p class="service-desc">Complete audio post for movies &amp; media — Foley, ADR, sound design, 5.1/7.1 surround mixing, and Dolby Atmos delivery.</p>
+        <div class="service-wave" id="wave6"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ OWNER ════════════════════════════════════ -->
+  <section id="owner">
+    <div class="owner-grid">
+      <div class="reveal-left">
+        <div class="owner-img-wrap">
+          <img src="Mahith Narayan_Owner.png" alt="Mahith Narayan" style="width: 100%; height: 100%; object-fit: cover;">
+          <div class="owner-img-frame"></div>
+          <div class="owner-img-accent"></div>
+          <div class="owner-img-accent2"></div>
+          <div class="owner-badge">
+            <div class="owner-badge-label">Founder &amp; Director</div>
+            <div class="owner-badge-value">Everest Studios</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="section-eyebrow">The Artist</div>
+        <h2 class="owner-name">Mahith<br>Narayan</h2>
+        <div class="owner-tag">Singer &amp; Music Creator</div>
+        <p class="owner-bio">Mahith Narayan is a celebrated singer, music artist, and the visionary founder of Everest Studios. With roots deep in the Telugu film industry, Mahith has lent his voice to some of the most memorable songs in contemporary Telugu cinema, blending raw emotion with technical mastery.</p>
+        <p class="owner-bio">His journey from a passionate music student to a sought-after playback singer and studio owner reflects an unwavering dedication to sonic excellence. At Everest Studios, Mahith brings together his creative artistry and entrepreneurial spirit to create a world-class production environment for artists and filmmakers alike.</p>
+        <div class="owner-stats">
+          <div class="stat-box">
+            <div class="stat-num" data-target="10" data-suffix="+">0+</div>
+            <div class="stat-label">Film Songs</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" data-target="50" data-suffix="+">0+</div>
+            <div class="stat-label">Albums</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" data-target="20" data-suffix="+">0+</div>
+            <div class="stat-label">Years Active</div>
+          </div>
+        </div>
+        <div class="owner-links">
+          <a href="https://www.instagram.com/mahith_narayan/" target="_blank" class="owner-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+            @mahith_narayan
+          </a>
+          <a href="https://www.instagram.com/evereststudioshyd/" target="_blank" class="owner-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+            Studio IG
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Timeline -->
+    <div class="career-timeline" style="margin-top:80px">
+      <div class="timeline-title">Career Highlights</div>
+      <div class="timeline-track">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2016</div>
+          <div class="timeline-event">Debut playback<br>in Telugu cinema</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2018</div>
+          <div class="timeline-event">Founded<br>Everest Studios</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2020</div>
+          <div class="timeline-event">Released first<br>private album</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2022</div>
+          <div class="timeline-event">10+ film songs<br>milestone</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2024</div>
+          <div class="timeline-event">Studio expansion<br>Dolby Atmos suite</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STUDIO ════════════════════════════════════ -->
+  <section id="studio">
+    <div class="studio-intro">
+      <div class="reveal-left">
+        <div class="section-eyebrow">The Space</div>
+        <h2 class="section-title">Where Sound<br><em>Comes Alive</em></h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="reveal-right">
+        <p class="section-sub">Our facility in the heart of Hyderabad houses premium recording booths, a world-class mixing room, a Dolby Atmos-ready theatre, and cutting-edge equipment sourced from the world's finest manufacturers.</p>
+        <br>
+        <p class="section-sub">Every surface is acoustically engineered. Every piece of gear is meticulously maintained. Because great sound deserves a great environment.</p>
+      </div>
+    </div>
+    <div class="studio-gallery">
+      <div class="studio-img reveal">
+        <img src="The Space/Main Console.png" alt="Main Console" style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;">
+        <div class="studio-img-inner" style="background: rgba(0,0,0,0.4)">🎚️</div>
+        <div class="studio-img-label">Main Mixing Console &middot; SSL &middot; Neve</div>
+      </div>
+      <div class="studio-img reveal delay-1">
+        <img src="The Space/Voice Recording Booth A.png" alt="Voice Recording Booth A" style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;">
+        <div class="studio-img-inner" style="background: rgba(0,0,0,0.4)">🎙️</div>
+        <div class="studio-img-label">Vocal Recording Booth A</div>
+      </div>
+      <div class="studio-img reveal delay-2">
+        <img src="The Space/Film Dubbing Theatre.png" alt="Film Dubbing Theatre" style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;">
+        <div class="studio-img-inner" style="background: rgba(0,0,0,0.4)">🎬</div>
+        <div class="studio-img-label">Film Dubbing Theatre</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PORTFOLIO ══════════════════════════════════ -->
+  <section id="portfolio">
+    <div class="portfolio-header">
+      <div>
+        <div class="section-eyebrow reveal">Our Work</div>
+        <h2 class="section-title reveal">Selected <em>Projects</em></h2>
+      </div>
+      <div class="portfolio-tabs reveal">
+        <button class="tab-btn active" onclick="filterPortfolio('all',this)">All</button>
+        <button class="tab-btn" onclick="filterPortfolio('film',this)">Films</button>
+        <button class="tab-btn" onclick="filterPortfolio('song',this)">Songs</button>
+        <button class="tab-btn" onclick="filterPortfolio('album',this)">Albums</button>
+      </div>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item" data-cat="film">
+        <div class="portfolio-thumb">🎬</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Telugu Film</div>
+          <div class="portfolio-name">Premante Idhena</div>
+          <button class="portfolio-play" onclick="openModal('video','Premante Idhena','Film &middot; 2023')">
+            <div class="play-circle">&#9654;</div> Preview
+          </button>
+        </div>
+      </div>
+      <div class="portfolio-item" data-cat="song">
+        <div class="portfolio-thumb">🎵</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Playback Song</div>
+          <div class="portfolio-name">Manasulo Merise</div>
+          <button class="portfolio-play" onclick="openModal('audio','Manasulo Merise','Song &middot; 2023')">
+            <div class="play-circle">&#9654;</div> Preview
+          </button>
+        </div>
+      </div>
+      <div class="portfolio-item" data-cat="album">
+        <div class="portfolio-thumb">🎼</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Private Album</div>
+          <div class="portfolio-name">Ekantha Velalo</div>
+          <button class="portfolio-play" onclick="openModal('audio','Ekantha Velalo','Album &middot; 2022')">
+            <div class="play-circle">&#9654;</div> Preview
+          </button>
+        </div>
+      </div>
+      <div class="portfolio-item" data-cat="film">
+        <div class="portfolio-thumb">🎞️</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Telugu Film &middot; BGM</div>
+          <div class="portfolio-name">Nuvvu Nenu Prema</div>
+          <button class="portfolio-play" onclick="openModal('audio','Nuvvu Nenu Prema','BGM &middot; 2023')">
+            <div class="play-circle">&#9654;</div> Preview
+          </button>
+        </div>
+      </div>
+      <div class="portfolio-item" data-cat="song">
+        <div class="portfolio-thumb">🎤</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Independent Single</div>
+          <div class="portfolio-name">Haayigaa</div>
+          <button class="portfolio-play" onclick="openModal('audio','Haayigaa','Single &middot; 2024')">
+            <div class="play-circle">&#9654;</div> Preview
+          </button>
+        </div>
+      </div>
+      <div class="portfolio-item" data-cat="album">
+        <div class="portfolio-thumb">🎹</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Private Album</div>
+          <div class="portfolio-name">Aakasam Ammayi</div>
+          <button class="portfolio-play" onclick="openModal('audio','Aakasam Ammayi','Album &middot; 2024')">
+            <div class="play-circle">&#9654;</div> Preview
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══════════════════════════════ -->
+  <section id="testimonials">
+    <div class="testimonials-inner">
+      <div style="text-align:center">
+        <div class="section-eyebrow reveal" style="justify-content:center;margin-bottom:16px">What They Say</div>
+        <h2 class="section-title reveal">Voices from the <em>Industry</em></h2>
+        <div class="section-divider reveal" style="margin:20px auto"></div>
+      </div>
+      <div class="testimonials-track">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-text">Working with Everest Studios was a revelation. The acoustic environment and Mahith's ear for detail elevated our entire background score to a cinematic level we hadn't imagined possible.</div>
+          <div class="testimonial-author">
+            <div class="author-avatar">🎬</div>
+            <div>
+              <div class="author-name">Ravi Shankar</div>
+              <div class="author-role">Film Director</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal delay-2">
+          <div class="testimonial-text">Mahith Narayan's voice carries a weight that is rare in modern Telugu film music. Recording at Everest Studios feels like working in a world-class international facility.</div>
+          <div class="testimonial-author">
+            <div class="author-avatar">🎵</div>
+            <div>
+              <div class="author-name">Priya Lakshmi</div>
+              <div class="author-role">Music Producer</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal delay-3">
+          <div class="testimonial-text">The mixing and mastering we got from Everest Studios gave our project a theatrical sound that stands alongside the best in the industry. Absolutely world-class.</div>
+          <div class="testimonial-author">
+            <div class="author-avatar">🏆</div>
+            <div>
+              <div class="author-name">Kiran Reddy</div>
+              <div class="author-role">OTT Producer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-video-wrap reveal" style="max-width: 1200px; overflow: hidden;">
+        <div class="testimonial-video-label" style="display: flex; justify-content: space-between; align-items: center;">
+          <span>Studio Testimonial &middot; Watch Our Story</span>
+          <span style="font-size: 1rem; color: var(--crimson-light); cursor: none;">&harr; Scroll</span>
+        </div>
+        <div class="story-grid">
+          <div class="story-item">
+            <video src="Watch our story section/Everest Studios evereststudioshyd Threads Say more.mp4" autoplay loop muted playsinline class="story-vid"></video>
+            <div class="story-video-controls" onclick="toggleMute(this)">🔇</div>
+            <div class="story-item-overlay">
+              <div class="story-item-title">Everest Studios Threads - Say More</div>
+            </div>
+          </div>
+          <div class="story-item">
+            <video src="Watch our story section/Anaganaga akasham undhi song andariki gurthundhi kadhu, Aa song fame SAI KIRAN ippudu bulliteran.mp4" autoplay loop muted playsinline class="story-vid"></video>
+            <div class="story-video-controls" onclick="toggleMute(this)">🔇</div>
+            <div class="story-item-overlay">
+              <div class="story-item-title">Anaganaga akasham undhi song fame SAI KIRAN</div>
+            </div>
+          </div>
+          <div class="story-item">
+            <video src="Watch our story section/Everest Studios evereststudioshyd Threads Say more (1).mp4" autoplay loop muted playsinline class="story-vid"></video>
+            <div class="story-video-controls" onclick="toggleMute(this)">🔇</div>
+            <div class="story-item-overlay">
+              <div class="story-item-title">Everest Studios Threads - Say More</div>
+            </div>
+          </div>
+          <div class="story-item">
+            <img src="Watch our story section/Her Energy! Her Modulations! Her voice! Everything feels Magical! One and only @iammangli Maam!P.jpg" alt="Mangli">
+            <div class="story-item-overlay">
+              <div class="story-item-title">Her Energy! Her Modulations! Her voice! Everything feels Magical! One and only @iammangli Maam!</div>
+            </div>
+          </div>
+          <div class="story-item">
+            <video src="Watch our story section/Everest Studios evereststudioshyd Threads Say more (2).mp4" autoplay loop muted playsinline class="story-vid"></video>
+            <div class="story-video-controls" onclick="toggleMute(this)">🔇</div>
+            <div class="story-item-overlay">
+              <div class="story-item-title">Everest Studios Threads - Say More</div>
+            </div>
+          </div>
+          <div class="story-item">
+            <img src="Watch our story section/Super energetic soul she is @_udayabhanu recorded a small bit get ready for some good news! Musi.jpg" alt="Udayabhanu">
+            <div class="story-item-overlay">
+              <div class="story-item-title">Super energetic soul she is @_udayabhanu recorded a small bit</div>
+            </div>
+          </div>
+          <div class="story-item">
+            <img src="Watch our story section/We are happy to have you with us maam ✨.jpg" alt="Happy to have you">
+            <div class="story-item-overlay">
+              <div class="story-item-title">We are happy to have you with us maam ✨</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PIANO ══════════════════════════════════════ -->
+  <section id="piano">
+    <div style="text-align:center;margin-bottom:50px">
+      <div class="section-eyebrow reveal" style="justify-content:center">Interactive Experience</div>
+      <h2 class="section-title reveal">Play Our <em>Grand Piano</em></h2>
+      <p class="section-sub reveal" style="margin:16px auto 0;text-align:center">Click any key or use keyboard shortcuts — hear real piano tones powered by the Web Audio API.</p>
+    </div>
+    <div class="piano-container reveal">
+      <div class="piano-body">
+        <div class="piano-brand">Everest Studios &nbsp;&middot;&nbsp; Grand Concert</div>
+        <div class="piano-display">
+          <div>
+            <div class="piano-display-label">Now Playing</div>
+            <div class="piano-display-note" id="piano-note-display">&mdash;</div>
+          </div>
+          <div style="text-align:right">
+            <div class="piano-display-label">Keyboard Shortcuts</div>
+            <div class="piano-display-hint">A S D F G H J &nbsp;|&nbsp; W E T Y U</div>
+          </div>
+        </div>
+        <div class="piano-keys-wrap">
+          <div class="piano-keys" id="piano-keys"></div>
+        </div>
+        <div class="piano-pedals">
+          <div class="pedal" style="width:36px"></div>
+          <div class="pedal" style="width:50px"></div>
+          <div class="pedal" style="width:36px"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ════════════════════════════════════ -->
+  <section id="contact">
+    <div style="margin-bottom:60px">
+      <div class="section-eyebrow reveal">Get In Touch</div>
+      <h2 class="section-title reveal">Book Your <em>Session</em></h2>
+      <div class="section-divider reveal"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal-left">
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div>
+            <div class="contact-detail-label">Location</div>
+            <div class="contact-detail-value">Everest Studios, Hyderabad,<br>Telangana, India</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <div>
+            <div class="contact-detail-label">Phone</div>
+            <div class="contact-detail-value">+91 XXXXX XXXXX</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉️</div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-value">info@evereststudios.in</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🕐</div>
+          <div>
+            <div class="contact-detail-label">Studio Hours</div>
+            <div class="contact-detail-value">Mon &ndash; Sat &middot; 9 AM &ndash; 10 PM<br>Sunday by Appointment</div>
+          </div>
+        </div>
+        <a href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I'd%20like%20to%20book%20a%20session%20at%20Everest%20Studios" target="_blank" class="wa-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+          </svg>
+          WhatsApp Us
+        </a>
+      </div>
+      <div class="reveal-right">
+        <div class="form-row"><label class="form-label">Full Name</label><input type="text" name="name" class="form-input" placeholder="Your Name" /></div>
+        <div class="form-row"><label class="form-label">Email Address</label><input type="email" name="email" class="form-input" placeholder="your@email.com" /></div>
+        <div class="form-row"><label class="form-label">Phone Number</label><input type="tel" name="phone" class="form-input" placeholder="+91 XXXXX XXXXX" /></div>
+        <div class="form-row">
+          <label class="form-label">Service Required</label>
+          <select name="service" class="form-select">
+            <option value="" disabled selected>Select a service</option>
+            <option>Recording of Songs</option>
+            <option>Re-Recording / Background Score</option>
+            <option>Mixing &amp; Mastering</option>
+            <option>Dubbing</option>
+            <option>Film Editing</option>
+            <option>Audio Post Production</option>
+            <option>Other / Enquiry</option>
+          </select>
+        </div>
+        <div class="form-row"><label class="form-label">Project Details</label><textarea name="message" class="form-textarea" placeholder="Tell us about your project — genre, timeline, requirements..."></textarea></div>
+        <button class="form-submit" onclick="handleFormSubmit(event)">Send Enquiry</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═════════════════════════════════════ -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Everest <em>Studios</em></div>
+        <p class="footer-tagline">Crafting Sound. Elevating Cinema.<br>Premium audio &amp; film post-production<br>from the heart of Hyderabad.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/evereststudioshyd/" target="_blank" class="social-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/mahith_narayan/" target="_blank" class="social-icon">🎤</a>
+          <a href="https://www.threads.com/@evereststudioshyd" target="_blank" class="social-icon">🧵</a>
+          <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="social-icon">💬</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">Recording</a></li>
+          <li><a href="#services">Re-Recording</a></li>
+          <li><a href="#services">Mixing &amp; Mastering</a></li>
+          <li><a href="#services">Dubbing</a></li>
+          <li><a href="#services">Film Editing</a></li>
+          <li><a href="#services">Audio Post</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#owner">About Mahith</a></li>
+          <li><a href="#studio">The Studio</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/evereststudioshyd/" target="_blank">Studio Instagram</a></li>
+          <li><a href="https://www.instagram.com/mahith_narayan/" target="_blank">Artist Instagram</a></li>
+          <li><a href="https://www.threads.com/@evereststudioshyd" target="_blank">Threads</a></li>
+          <li><a href="#contact">Book a Session</a></li>
+          <li><a href="mailto:info@evereststudios.in">Email Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 <em>Everest Studios</em>. All rights reserved. Hyderabad, India.</div>
+      <div class="footer-craft">Crafted for cinema.</div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div id="modal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-box">
+      <div class="modal-top">
+        <div>
+          <div class="modal-title" id="modal-title"></div>
+          <div class="modal-meta" id="modal-meta"></div>
+        </div>
+        <button class="modal-close" onclick="closeModal()">&#10005;</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+
+</html>
