@@ -1287,16 +1287,8 @@ section {
   position: relative;
   overflow: hidden;
   cursor: none;
-  background: var(--panel)
-}
-
-.studio-img:first-child {
-  grid-column: span 2;
-  aspect-ratio: 16/7
-}
-
-.studio-img:not(:first-child) {
-  aspect-ratio: 4/3
+  background: var(--panel);
+  aspect-ratio: 4/3;
 }
 
 .studio-img-inner {
@@ -2416,10 +2408,7 @@ footer {
     grid-template-columns: 1fr
   }
 
-  .studio-img:first-child {
-    grid-column: auto;
-    aspect-ratio: 16/9
-  }
+
 
   .footer-top {
     grid-template-columns: 1fr;
